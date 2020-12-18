@@ -1,0 +1,46 @@
+html,
+body {
+    margin: 0;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        hsl(273, 75%, 66%),
+        hsl(240, 73%, 65%)
+    );
+    /* overflow: hidden; */
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+}
+
+section.box {
+    background-color: white;
+    margin: auto;
+    grid-row: 1/2;
+    grid-column: span 1;
+    width: 60vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+section.box div.illustration {
+    width: 20vw;
+    height: 30vh;
+}
+
+section div.attribution {
+    grid-column: span 1;
+    grid-row: 2/3;
+}
