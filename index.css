@@ -9,7 +9,20 @@ body {
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
 body {
+    font-family: 'Kumbh Sans', sans-serif;
     width: 100vw;
     height: 100vh;
     background: linear-gradient(
@@ -24,23 +37,164 @@ body {
 }
 
 section.box {
-    background-color: white;
-    margin: auto;
-    grid-row: 1/2;
     grid-column: span 1;
-    width: 60vw;
-    height: 60vh;
+    grid-row: 1/2;
+    margin: auto;
+    background: white;
+    background-image: url('./images/bg-pattern-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: left 375% bottom 35%;
+    background-size: 120%;
+    width: 70vw;
+    max-height: 70vh;
+    height: fit-content;
+    border-radius: 3%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
 }
-section.box div.illustration {
-    width: 20vw;
-    height: 30vh;
+section.box > div {
+    flex: 0, 0, 50%;
+    max-width: 50%;
 }
+div.illustration {
+    position: relative;
+}
+div.illustration div {
+    /* display: flex;
+    flex-flow: row nowrap; */
+    overflow: hidden;
+    margin: 0;
+}
+div.illustration div img {
+    max-width: 100%;
+}
+img.woman-desktop {
+    margin-left: -12%;
+}
+img.box-desktop {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    left: 0%;
+    top: 63%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+}
+div.faq {
+    max-width: 50%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+h1.faq-h {
+    margin-bottom: 15%;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+div.shitsumon {
+    max-width: 100%;
+    width: 300px;
+}
+p.problem {
+    color: hsl(238, 29%, 16%);
+    margin-bottom: 7%;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    transition-timing-function: 1s;
+}
+p.problem:hover {
+    cursor: pointer;
+    color: hsl(14, 88%, 65%);
+    font-weight: 700;
+}
+.answer {
+    display: none;
+    font-weight: 400;
+    overflow: hidden;
+}
+.show {
+    display: block;
+}
+p.problem::after {
+    content: url('./images/icon-arrow-down.svg');
+    margin-left: auto;
+    transition: all 0.5s;
+}
+.active {
+    font-weight: 700;
+    transition: all 1s;
+}
+.active::after {
+    content: url('./images/icon-arrow-down.svg');
+    transform: rotate(180deg);
+}
+/* .answer {
+    padding: 0;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-size: 12px;
+    font-weight: 400;
+} */
 
+/* section.box div.faq div.shitsumon p.problem span.down:active {
+    transform: rotate(180deg);
+} */
 section div.attribution {
     grid-column: span 1;
     grid-row: 2/3;
+}
+img.woman-mobile {
+    display: none;
+}
+
+@media all and (max-width: 376px) {
+    body {
+        overflow: hidden;
+    }
+    img.woman-desktop,
+    img.box-desktop {
+        display: none;
+    }
+    section.box {
+        background-image: url('./images/bg-pattern-mobile.svg');
+        background-repeat: no-repeat;
+        background-position: top 0% left 50%;
+        background-size: 210px;
+        max-width: 85vw;
+        width: fit-content;
+        height: 100vh;
+        display: flex;
+        flex-flow: column wrap;
+        position: relative;
+        margin: auto;
+        margin-top: 20vh;
+    }
+    section.box div {
+        max-width: 100%;
+    }
+    div.illustration div.img {
+        overflow: visible;
+        max-width: 130%;
+        width: 250px;
+        height: auto;
+    }
+    div.illustration {
+        position: absolute;
+        top: -21%;
+        left: 3%;
+    }
+    img.woman-mobile {
+        display: block;
+        /* position: absolute; */
+    }
+    div.faq {
+        margin: 35% 1% 1% 5%;
+        width: 80%;
+        overflow-y: auto;
+    }
+    div h1.faq-h {
+        text-align: center;
+    }
 }
