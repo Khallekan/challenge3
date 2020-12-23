@@ -108,7 +108,6 @@ p.problem:hover {
     font-weight: 700;
 }
 .answer {
-    display: none;
     font-weight: 400;
     overflow: hidden;
 }
